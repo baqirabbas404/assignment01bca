@@ -22,7 +22,7 @@ func NewBlock(transaction string, nonce int, previousHash string) Block {
 	return b
 }
 
-func ListBlocks(blocks []assignment01bca.Block) { // Update the function signature
+func ListBlocks(blocks []Block) { // Update the function signature
 	fmt.Println("==== Block List ====")
 	for i, block := range blocks {
 		fmt.Printf("Block #%d\n", i)
