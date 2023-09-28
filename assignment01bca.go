@@ -22,6 +22,20 @@ func NewBlock(transaction string, nonce int, previousHash string) Block {
 	return b
 }
 
+func ListBlocks(blocks []assignment01bca.Block) { // Update the function signature
+	fmt.Println("==== Block List ====")
+	for i, block := range blocks {
+		fmt.Printf("Block #%d\n", i)
+		fmt.Printf("Transaction: %s\n", block.Transaction)
+		fmt.Printf("Nonce: %d\n", block.Nonce)
+		if i > 0 {
+			fmt.Printf("Previous Block's Hash: %s\n", blocks[i-1].CurrentHash)
+		}
+		fmt.Printf("Current Hash: %s\n", block.CurrentHash)
+		fmt.Println("===================")
+	}
+}
+
 func (b Block) CalculateHash() string {
 	stringToHash := fmt.Sprintf("%s%d%s", b.Transaction, b.Nonce, b.PreviousHash)
 	return fmt.Sprintf("%x", sha256.Sum256([]byte(stringToHash)))
